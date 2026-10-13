@@ -19,9 +19,9 @@ export const Route = createFileRoute("/")({
 const genres = ["Billionaire Romance", "Mafia", "Werewolf", "Fantasy", "Cultivation", "LitRPG", "Academy Fantasy", "Dark Romance"];
 const metrics = [
   { value: "120+", label: "Authors Signed" },
-  { value: "18", label: "Partner Platforms" },
-  { value: "$2.4M", label: "Author Earnings Routed" },
-  { value: "94%", label: "Acceptance Rate" },
+  { value: "7", label: "Partner Platforms" },
+  { value: "$20k", label: "Author Earnings Routed" },
+  { value: "High", label: "Acceptance Rate" },
 ];
 
 function HomePage() {
@@ -101,7 +101,7 @@ function HomePage() {
               <div className="rounded-2xl bg-primary p-5 text-primary-foreground">
                 <p className="text-xs uppercase tracking-widest opacity-80">Match score</p>
                 <p className="text-4xl font-extrabold mt-1">96.4%</p>
-                <p className="text-xs mt-2 opacity-80">Cultivation × DreamWords</p>
+                <p className="text-xs mt-2 opacity-80">Cultivation × Webnovel</p>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div className="rounded-xl bg-secondary p-4">
@@ -125,7 +125,7 @@ function HomePage() {
                 <Scroll className="w-4 h-4 text-primary" />
                 <span className="text-sm font-semibold">Contract signed</span>
               </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">Exclusive · 250k words · $200 onboarding bonus</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">Exclusive · 250k words · $100 onboarding bonus</p>
             </motion.div>
 
             <motion.span
@@ -250,9 +250,9 @@ function HomePage() {
         </Reveal>
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
-            { q: "Within three weeks I was signed, onboarded, and earning. The AE walked me through every clause.", a: "Mira A.", g: "Werewolf Romance" },
-            { q: "I had no idea exclusive bonuses even existed. Kyef changed my entire publishing trajectory.", a: "Rohan V.", g: "Cultivation" },
-            { q: "It feels less like a CRM and more like a real partner. Everything is considered and clear.", a: "Lena F.", g: "Dark Academia" },
+            { q: "Within three weeks I was signed, onboarded, and earning. The AE walked me through every clause.", a: "Mirabel.", g: "Werewolf Romance" },
+            { q: "I had no idea exclusive bonuses even existed. Kyef changed my entire publishing trajectory.", a: "Nightengale", g: "Cultivation" },
+            { q: "It feels less like a CRM and more like a real partner. Everything is considered and clear.", a: "Vera", g: "Erotica" },
           ].map((t, i) => (
             <Reveal key={t.a} delay={i * 0.08}>
               <div className="glass rounded-3xl p-8 h-full hover-lift">
@@ -277,7 +277,7 @@ function HomePage() {
           {[
             { q: "What is an acquisition editor?", a: "An AE is a publishing professional who scouts manuscripts, matches them with the right platform, and shepherds authors through onboarding and contract negotiation." },
             { q: "Can beginners apply?", a: "Absolutely. Many of our signed authors started with their first novel. Talent matters more than tenure." },
-            { q: "How long does review take?", a: "Most submissions hear back within 3–7 days. Exclusive contracts may take a fortnight as we negotiate the best terms." },
+            { q: "How long does review take?", a: "Most submissions hear back within 3–7 working days. " },
           ].map((f, i) => (
             <Reveal key={f.q} delay={i * 0.06}>
               <details className="glass rounded-2xl p-6 group">

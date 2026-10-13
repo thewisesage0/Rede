@@ -53,8 +53,8 @@ function ContactPage() {
           <div className="mt-10 space-y-3">
             {[
               { icon: MessageCircle, label: "WhatsApp", value: "+2347025434019" },
-              { icon: MessageCircle, label: "Discord", value: "kyef#0001" },
-              { icon: MessageCircle, label: "Telegram", value: "@kyef_ae" },
+              // { icon: MessageCircle, label: "Discord", value: "kyef#0001" }, 
+              // { icon: MessageCircle, label: "Telegram", value: "@kyef_ae" },
               { icon: Mail, label: "Email", value: "fashipeakorede4@gmail.com" },
             ].map((c) => (
               <div key={c.label} className="glass rounded-2xl p-4 flex items-center gap-4 hover-lift">

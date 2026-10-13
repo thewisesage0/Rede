@@ -18,8 +18,8 @@ const benefits = [
 ];
 
 const timeline = [
-  { phase: "Week 1", title: "Discovery", body: "We meet, read your manuscript, and identify the best-fit platforms." },
-  { phase: "Week 2", title: "Pitch", body: "We submit your work to chosen platforms with a custom acquisition memo." },
+  { phase: "Week 1", title: "Discovery", body: "We meet, read your application manuscript, and identify the best-fit platforms." },
+  { phase: "Week 2", title: "Pitch", body: "We submit your work to chosen platforms.." },
   { phase: "Week 3", title: "Negotiate", body: "Contract terms, bonuses, and exclusivity windows worked out on your behalf." },
   { phase: "Week 4", title: "Onboard", body: "You sign, the platform onboards, and your debut chapter goes live." },
 ];

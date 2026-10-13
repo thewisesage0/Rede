@@ -9,49 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WhyAeRouteImport } from './routes/why-ae'
-import { Route as SubmitRouteImport } from './routes/submit'
-import { Route as MatcherRouteImport } from './routes/matcher'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MatcherRouteImport } from './routes/matcher'
+import { Route as SubmitRouteImport } from './routes/submit'
+import { Route as WhyAeRouteImport } from './routes/why-ae'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as PlatformsIndexRouteImport } from './routes/platforms.index'
 import { Route as PlatformsSlugRouteImport } from './routes/platforms.$slug'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
-import { Route as AuthenticatedAdminSubmissionsRouteImport } from './routes/_authenticated/admin.submissions'
 import { Route as AuthenticatedAdminPlatformsRouteImport } from './routes/_authenticated/admin.platforms'
+import { Route as AuthenticatedAdminSubmissionsRouteImport } from './routes/_authenticated/admin.submissions'
 
-const WhyAeRoute = WhyAeRouteImport.update({
-  id: '/why-ae',
-  path: '/why-ae',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SubmitRoute = SubmitRouteImport.update({
-  id: '/submit',
-  path: '/submit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MatcherRoute = MatcherRouteImport.update({
-  id: '/matcher',
-  path: '/matcher',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -59,14 +38,40 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRoute = AuthenticatedRouteImport.update({
-  id: '/_authenticated',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatcherRoute = MatcherRouteImport.update({
+  id: '/matcher',
+  path: '/matcher',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmitRoute = SubmitRouteImport.update({
+  id: '/submit',
+  path: '/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhyAeRoute = WhyAeRouteImport.update({
+  id: '/why-ae',
+  path: '/why-ae',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
 } as any)
 const PlatformsIndexRoute = PlatformsIndexRouteImport.update({
   id: '/platforms/',
@@ -78,21 +83,16 @@ const PlatformsSlugRoute = PlatformsSlugRouteImport.update({
   path: '/platforms/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AuthenticatedRoute,
-} as any)
-const AuthenticatedAdminSubmissionsRoute =
-  AuthenticatedAdminSubmissionsRouteImport.update({
-    id: '/admin/submissions',
-    path: '/admin/submissions',
-    getParentRoute: () => AuthenticatedRoute,
-  } as any)
 const AuthenticatedAdminPlatformsRoute =
   AuthenticatedAdminPlatformsRouteImport.update({
     id: '/admin/platforms',
     path: '/admin/platforms',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAdminSubmissionsRoute =
+  AuthenticatedAdminSubmissionsRouteImport.update({
+    id: '/admin/submissions',
+    path: '/admin/submissions',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
 
@@ -208,53 +208,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/why-ae': {
-      id: '/why-ae'
-      path: '/why-ae'
-      fullPath: '/why-ae'
-      preLoaderRoute: typeof WhyAeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/submit': {
-      id: '/submit'
-      path: '/submit'
-      fullPath: '/submit'
-      preLoaderRoute: typeof SubmitRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/matcher': {
-      id: '/matcher'
-      path: '/matcher'
-      fullPath: '/matcher'
-      preLoaderRoute: typeof MatcherRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -264,12 +222,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/matcher': {
+      id: '/matcher'
+      path: '/matcher'
+      fullPath: '/matcher'
+      preLoaderRoute: typeof MatcherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submit': {
+      id: '/submit'
+      path: '/submit'
+      fullPath: '/submit'
+      preLoaderRoute: typeof SubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/why-ae': {
+      id: '/why-ae'
+      path: '/why-ae'
+      fullPath: '/why-ae'
+      preLoaderRoute: typeof WhyAeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/platforms/': {
       id: '/platforms/'
@@ -285,11 +292,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlatformsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+    '/_authenticated/admin/platforms': {
+      id: '/_authenticated/admin/platforms'
+      path: '/admin/platforms'
+      fullPath: '/admin/platforms'
+      preLoaderRoute: typeof AuthenticatedAdminPlatformsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/admin/submissions': {
@@ -297,13 +304,6 @@ declare module '@tanstack/react-router' {
       path: '/admin/submissions'
       fullPath: '/admin/submissions'
       preLoaderRoute: typeof AuthenticatedAdminSubmissionsRouteImport
-      parentRoute: typeof AuthenticatedRoute
-    }
-    '/_authenticated/admin/platforms': {
-      id: '/_authenticated/admin/platforms'
-      path: '/admin/platforms'
-      fullPath: '/admin/platforms'
-      preLoaderRoute: typeof AuthenticatedAdminPlatformsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
   }
